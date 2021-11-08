@@ -3,36 +3,34 @@
 \docType{class}
 \name{vsts_account}
 \alias{vsts_account}
-\title{Visual Studio Team Services Account}
-\format{An \code{\link[R6]{R6Class}} generator object}
-\usage{
-vsts_account
+\title{Azure DevOps Account}
+\format{
+An \code{\link[R6]{R6Class}} generator object
+}
+\arguments{
+\item{user}{username for the Azure DevOps account}
+
+\item{pass}{password for the Azure DevOps account}
+
+\item{domain}{domain name for the Azure DevOps account}
+
+\item{project}{(optional) project name within the domain of the Azure DevOps account}
+
+\item{repo}{(optional) repository name with the project of the Azure DevOps domain}
 }
 \description{
-Visual Studio Team Services Account
+Azure DevOps Account
 }
 \details{
 For the majority of functions that are within this \code{vsts_account} object, you can get help about the
 query or body parameter with \code{?vsts_<function name>}.
 }
-\section{Fields}{
-
-\describe{
-\item{\code{user}}{username for the Visual Studio account}
-
-\item{\code{pass}}{password for the Visual Studio account}
-
-\item{\code{domain}}{domain name for the Visual Studio account}
-
-\item{\code{project}}{(optional) project name within the domain of the Visual Studio account}
-
-\item{\code{repo}}{(optional) repository name with the project of the Visual Studio domain}
-}}
-
 \examples{
 \dontrun{
-proj <- vsts_account$new('<username>', '<password>', '<domain>',
-                         '<project>', '<repo>')
+proj <- vsts_account$new(
+  "<username>", "<password>", "<domain>",
+  "<project>", "<repo>"
+)
 str(proj)
 }
 

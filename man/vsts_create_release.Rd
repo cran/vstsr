@@ -2,12 +2,12 @@
 % Please edit documentation in R/release.R
 \name{vsts_create_release}
 \alias{vsts_create_release}
-\title{Visual Studio Project Release Information}
+\title{Azure DevOps Project Release Information}
 \usage{
 vsts_create_release(domain, project, auth_key, body)
 }
 \arguments{
-\item{domain}{the location of the visual studio server}
+\item{domain}{The name of the Azure DevOps organization.}
 
 \item{project}{the name of the project in \code{domain} to look at}
 
@@ -25,7 +25,7 @@ vsts_create_release(domain, project, auth_key, body)
 }}
 }
 \description{
-These functions will allow you to create releases from Visual Studio.
+These functions will allow you to create releases from Azure DevOps.
 }
 \details{
 The \code{artifacts} object within the body contains two items:
@@ -38,12 +38,17 @@ For more information about release  API calls check
 \url{https://docs.microsoft.com/en-us/rest/api/vsts/release/releases}.
 }
 \examples{
-#Add in own details to get a non-NULL output
-auth_key <- vsts_auth_key('<username>', '<password>')
-art_list <- list(list(alias = 'Art1', instanceReference = list(id = 1)),
-                 list(alias = 'Art2', instanceReference = list(id = 2)))
-body <- list(definitionId = 1, description = 'R API Release',
-             artifacts = I(art_list))
-vsts_create_release('domain', 'project', auth_key, body)
-
+\dontrun{
+# Add in own details to get a non-NULL output
+auth_key <- vsts_auth_key("<username>", "<password>")
+art_list <- list(
+  list(alias = "Art1", instanceReference = list(id = 1)),
+  list(alias = "Art2", instanceReference = list(id = 2))
+)
+body <- list(
+  definitionId = 1, description = "R API Release",
+  artifacts = I(art_list)
+)
+vsts_create_release("domain", "project", auth_key, body)
+}
 }
